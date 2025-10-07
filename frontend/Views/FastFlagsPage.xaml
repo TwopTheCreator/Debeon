@@ -1,0 +1,113 @@
+<Page x:Class="Debeon.Views.FastFlagsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Fast Flags" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="About Fast Flags" Style="{StaticResource SectionHeaderStyle}"/>
+                    <TextBlock Text="Fast Flags are Roblox's internal configuration flags that allow deep customization of the client behavior. Use with caution as incorrect values may cause instability."
+                               Style="{StaticResource SettingDescriptionStyle}"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,16"/>
+
+                    <Button Style="{StaticResource AccentButtonStyle}" Width="200" Click="LoadCurrentFlags" Margin="0,0,0,12">
+                        <TextBlock Text="Load Current Flags"/>
+                    </Button>
+
+                    <Button Style="{StaticResource AccentButtonStyle}" Width="200" Click="ClearAllFlags">
+                        <TextBlock Text="Clear All Flags"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Preset Configurations" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <StackPanel>
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="250" Height="60" Margin="0,0,0,12" Click="ApplyUncapFpsPreset">
+                            <StackPanel>
+                                <TextBlock Text="Uncap FPS" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="Remove frame rate limit" FontSize="11" Foreground="#CCCCCC"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="250" Height="60" Margin="0,0,0,12" Click="ApplyLowLatencyPreset">
+                            <StackPanel>
+                                <TextBlock Text="Low Latency" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="Reduce input lag" FontSize="11" Foreground="#CCCCCC"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="250" Height="60" Margin="0,0,0,12" Click="ApplyUltraGraphicsPreset">
+                            <StackPanel>
+                                <TextBlock Text="Ultra Graphics" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="Maximum visual quality" FontSize="11" Foreground="#CCCCCC"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="250" Height="60" Click="ApplyPotatoModePreset">
+                            <StackPanel>
+                                <TextBlock Text="Potato Mode" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Text="Minimum graphics for max FPS" FontSize="11" Foreground="#CCCCCC"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Custom Flags" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                            <TextBlock Text="Flag Name" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="FlagNameBox" Height="32"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="8,0,8,0">
+                            <TextBlock Text="Value" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="FlagValueBox" Height="32"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="2" Style="{StaticResource AccentButtonStyle}" Width="100" Margin="0,24,0,0" Click="AddCustomFlag">
+                            <TextBlock Text="Add Flag"/>
+                        </Button>
+                    </Grid>
+
+                    <TextBlock Text="Current Custom Flags:" Style="{StaticResource SettingLabelStyle}" Margin="0,16,0,8"/>
+                    <ListBox x:Name="CustomFlagsListBox" Background="#1E1E1E" BorderBrush="#2D2D30" Height="200" Margin="0,0,0,12">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding}" Foreground="White"/>
+                                    <Button Grid.Column="1" Content="Remove" Click="RemoveCustomFlag" Background="Transparent" Foreground="#FF6B6B" BorderThickness="0" Cursor="Hand"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Button Style="{StaticResource AccentButtonStyle}" Width="200" Click="SaveCustomFlags">
+                        <TextBlock Text="Apply Custom Flags"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

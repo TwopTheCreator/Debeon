@@ -1,0 +1,109 @@
+<Page x:Class="Debeon.Views.AssetsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Asset Management" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Asset Loader" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0,0,12,0">
+                            <TextBlock Text="Asset ID" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="AssetIdBox" Height="32"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="1" Style="{StaticResource AccentButtonStyle}" Width="150" Margin="0,24,0,0" Click="LoadAsset">
+                            <TextBlock Text="Load Asset"/>
+                        </Button>
+                    </Grid>
+
+                    <Border x:Name="AssetInfoPanel" Background="#1E1E1E" BorderBrush="#2D2D30" BorderThickness="1" CornerRadius="4" Padding="16" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock Text="Asset Information" FontSize="16" FontWeight="Bold" Foreground="White" Margin="0,0,0,12"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Asset ID:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                                <TextBlock x:Name="AssetIdText" Grid.Row="0" Grid.Column="1" Text="-" Foreground="White" Margin="0,0,0,8"/>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Name:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                                <TextBlock x:Name="AssetNameText" Grid.Row="1" Grid.Column="1" Text="-" Foreground="White" TextWrapping="Wrap" Margin="0,0,0,8"/>
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Creator:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                                <TextBlock x:Name="AssetCreatorText" Grid.Row="2" Grid.Column="1" Text="-" Foreground="White" Margin="0,0,0,8"/>
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Type:" Style="{StaticResource SettingLabelStyle}"/>
+                                <TextBlock x:Name="AssetTypeText" Grid.Row="3" Grid.Column="1" Text="-" Foreground="White"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Quick Links" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <UniformGrid Columns="2">
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="220" Height="80" Margin="0,0,12,12" Click="OpenRobloxCatalog">
+                            <StackPanel>
+                                <TextBlock Text="🛒" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Browse Catalog" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="220" Height="80" Margin="0,0,0,12" Click="OpenRobloxLibrary">
+                            <StackPanel>
+                                <TextBlock Text="📚" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Creator Library" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="220" Height="80" Margin="0,0,12,0" Click="OpenRobloxDevelop">
+                            <StackPanel>
+                                <TextBlock Text="🔧" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Develop Page" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="220" Height="80" Click="OpenRobloxAvatar">
+                            <StackPanel>
+                                <TextBlock Text="👤" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Avatar Editor" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="About Assets" Style="{StaticResource SectionHeaderStyle}"/>
+                    <TextBlock Text="Use the Asset Loader to fetch information about any Roblox asset by its ID. This feature connects to the Roblox API to retrieve asset details including name, creator, type, and more."
+                               Style="{StaticResource SettingDescriptionStyle}"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

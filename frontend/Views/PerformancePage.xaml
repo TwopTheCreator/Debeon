@@ -1,0 +1,72 @@
+<Page x:Class="Debeon.Views.PerformancePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Performance Settings" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Rendering" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Frame Rate Limit" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="FpsLimitValue" Text="60 FPS" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="FpsLimitSlider" Minimum="30" Maximum="240" Value="60" Style="{StaticResource CustomSliderStyle}"
+                                TickFrequency="30" ValueChanged="FpsLimitSlider_ValueChanged"/>
+                        <CheckBox x:Name="UnlimitedFpsCheckBox" Content="Unlimited FPS" Foreground="White" Margin="0,8,0,0" Checked="UnlimitedFpsCheckBox_Changed" Unchecked="UnlimitedFpsCheckBox_Changed"/>
+                        <TextBlock Text="Set maximum frame rate (higher uses more GPU)" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+
+                    <CheckBox x:Name="DynamicLightingCheckBox" Content="Dynamic Lighting" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Real-time lighting calculations" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="PostProcessingCheckBox" Content="Post Processing" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Screen-space effects like bloom and color grading" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="BloomCheckBox" Content="Bloom Effect" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Glow effect around bright objects" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="DepthOfFieldCheckBox" Content="Depth of Field" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Camera focus blur effect" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="MotionBlurCheckBox" Content="Motion Blur" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Blur effect during fast movement" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="AmbientOcclusionCheckBox" Content="Ambient Occlusion" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Enhanced shadow detail in corners and crevices" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="ReflectionsCheckBox" Content="Reflections" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Screen-space reflections on surfaces" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,16"/>
+
+                    <CheckBox x:Name="GlobalIlluminationCheckBox" Content="Global Illumination" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Realistic light bouncing and indirect lighting" Style="{StaticResource SettingDescriptionStyle}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Optimization" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <CheckBox x:Name="LowLatencyModeCheckBox" Content="Low Latency Mode" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Reduce input lag for competitive gameplay" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <CheckBox x:Name="PowerSavingModeCheckBox" Content="Power Saving Mode" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Reduce performance to save battery on laptops" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="GPU Preference" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="GpuPreferenceComboBox" Height="32" Margin="0,0,0,8">
+                        <ComboBoxItem Content="High Performance" IsSelected="True"/>
+                        <ComboBoxItem Content="Balanced"/>
+                        <ComboBoxItem Content="Power Saver"/>
+                    </ComboBox>
+                    <TextBlock Text="Select GPU performance mode" Style="{StaticResource SettingDescriptionStyle}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

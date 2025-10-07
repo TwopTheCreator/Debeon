@@ -1,0 +1,113 @@
+<Page x:Class="Debeon.Views.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Dashboard" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="System Information" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Roblox Installation:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,20,12"/>
+                        <TextBlock x:Name="InstallationPathText" Grid.Row="0" Grid.Column="1" Text="Detecting..." Foreground="White" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Roblox Version:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,20,12"/>
+                        <TextBlock x:Name="VersionText" Grid.Row="1" Grid.Column="1" Text="Detecting..." Foreground="White" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Channel:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,20,0"/>
+                        <TextBlock x:Name="ChannelText" Grid.Row="2" Grid.Column="1" Text="Detecting..." Foreground="White"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Quick Actions" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <UniformGrid Columns="3" HorizontalAlignment="Left">
+                        <Button Style="{StaticResource AccentButtonStyle}" Margin="0,0,12,0" Width="180" Height="80" Click="LoadDefaultProfile">
+                            <StackPanel>
+                                <TextBlock Text="⚙️" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Default Settings" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Margin="0,0,12,0" Width="180" Height="80" Click="LoadUltraProfile">
+                            <StackPanel>
+                                <TextBlock Text="🚀" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Ultra Graphics" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource AccentButtonStyle}" Width="180" Height="80" Click="LoadPerformanceProfile">
+                            <StackPanel>
+                                <TextBlock Text="⚡" FontSize="24" Margin="0,0,0,8"/>
+                                <TextBlock Text="Max Performance" FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Current Configuration Summary" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Graphics Quality:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBlock x:Name="GraphicsQualityText" Grid.Row="0" Grid.Column="1" Text="10/21" Foreground="#0078D4" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Frame Rate Limit:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBlock x:Name="FpsLimitText" Grid.Row="1" Grid.Column="1" Text="60 FPS" Foreground="#0078D4" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="V-Sync:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBlock x:Name="VsyncText" Grid.Row="2" Grid.Column="1" Text="Enabled" Foreground="#0078D4" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Anti-Aliasing:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBlock x:Name="AAText" Grid.Row="3" Grid.Column="1" Text="4x" Foreground="#0078D4" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Master Volume:" Style="{StaticResource SettingLabelStyle}"/>
+                        <TextBlock x:Name="VolumeText" Grid.Row="4" Grid.Column="1" Text="80%" Foreground="#0078D4"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="About Debeon" Style="{StaticResource SectionHeaderStyle}"/>
+                    <TextBlock Text="Debeon is a powerful Roblox bootstrapper that gives you complete control over Roblox's configuration and settings. Customize graphics, audio, controls, and more with an intuitive interface."
+                               Style="{StaticResource SettingDescriptionStyle}"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,12"/>
+                    <TextBlock Text="Version 1.0.0" Foreground="#888888" FontSize="12"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

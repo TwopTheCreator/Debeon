@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+    <AssemblyName>Debeon</AssemblyName>
+    <RootNamespace>Debeon</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

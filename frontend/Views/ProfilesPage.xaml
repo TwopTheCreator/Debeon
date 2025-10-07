@@ -1,0 +1,64 @@
+<Page x:Class="Debeon.Views.ProfilesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Configuration Profiles" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Manage Profiles" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0,0,12,0">
+                            <TextBlock Text="Profile Name" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,4"/>
+                            <TextBox x:Name="ProfileNameBox" Height="32"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="1" Style="{StaticResource AccentButtonStyle}" Width="180" Margin="0,24,0,0" Click="SaveProfile">
+                            <TextBlock Text="Save Current Config"/>
+                        </Button>
+                    </Grid>
+
+                    <TextBlock Text="Saved Profiles:" Style="{StaticResource SettingLabelStyle}" Margin="0,16,0,8"/>
+                    <ListBox x:Name="ProfilesListBox" Background="#1E1E1E" BorderBrush="#2D2D30" Height="250" Margin="0,0,0,12">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding}" Foreground="White" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                                    <Button Grid.Column="1" Content="Load" Click="LoadProfile" Background="#0078D4" Foreground="White" BorderThickness="0" Cursor="Hand" Padding="12,4" Margin="0,0,8,0"/>
+                                    <Button Grid.Column="2" Content="Delete" Click="DeleteProfile" Background="Transparent" Foreground="#FF6B6B" BorderThickness="0" Cursor="Hand" Padding="12,4"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Button Style="{StaticResource AccentButtonStyle}" Width="200" Click="RefreshProfiles">
+                        <TextBlock Text="Refresh Profile List"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Profile Information" Style="{StaticResource SectionHeaderStyle}"/>
+                    <TextBlock Text="Profiles save all your current configuration settings including graphics, audio, controls, performance, and custom flags. You can quickly switch between different configurations for different games or scenarios."
+                               Style="{StaticResource SettingDescriptionStyle}"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

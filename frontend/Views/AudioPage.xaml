@@ -1,0 +1,82 @@
+<Page x:Class="Debeon.Views.AudioPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Audio Settings" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Volume Controls" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Master Volume" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="MasterVolumeValue" Text="80%" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="MasterVolumeSlider" Minimum="0" Maximum="100" Value="80" Style="{StaticResource CustomSliderStyle}"
+                                ValueChanged="MasterVolumeSlider_ValueChanged"/>
+                        <TextBlock Text="Overall volume for all Roblox audio" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Music Volume" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="MusicVolumeValue" Text="70%" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="MusicVolumeSlider" Minimum="0" Maximum="100" Value="70" Style="{StaticResource CustomSliderStyle}"
+                                ValueChanged="MusicVolumeSlider_ValueChanged"/>
+                        <TextBlock Text="Volume for background music" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Sound Effects Volume" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="SfxVolumeValue" Text="80%" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="SfxVolumeSlider" Minimum="0" Maximum="100" Value="80" Style="{StaticResource CustomSliderStyle}"
+                                ValueChanged="SfxVolumeSlider_ValueChanged"/>
+                        <TextBlock Text="Volume for sound effects and ambient audio" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,12">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Voice Chat Volume" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="VoiceVolumeValue" Text="90%" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="VoiceVolumeSlider" Minimum="0" Maximum="100" Value="90" Style="{StaticResource CustomSliderStyle}"
+                                ValueChanged="VoiceVolumeSlider_ValueChanged"/>
+                        <TextBlock Text="Volume for voice chat communication" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Audio Settings" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <CheckBox x:Name="SpatialAudioCheckBox" Content="Enable Spatial Audio" IsChecked="True" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="3D positional audio for immersive sound experience" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Audio Output Device" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="OutputDeviceComboBox" Height="32" Margin="0,0,0,8">
+                        <ComboBoxItem Content="Default Output Device" IsSelected="True"/>
+                        <ComboBoxItem Content="Speakers"/>
+                        <ComboBoxItem Content="Headphones"/>
+                    </ComboBox>
+                    <TextBlock Text="Select audio output device for Roblox" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Audio Input Device" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="InputDeviceComboBox" Height="32" Margin="0,0,0,8">
+                        <ComboBoxItem Content="Default Input Device" IsSelected="True"/>
+                        <ComboBoxItem Content="Microphone"/>
+                        <ComboBoxItem Content="Headset Mic"/>
+                    </ComboBox>
+                    <TextBlock Text="Select microphone for voice chat" Style="{StaticResource SettingDescriptionStyle}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

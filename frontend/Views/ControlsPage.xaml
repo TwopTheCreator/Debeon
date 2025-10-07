@@ -1,0 +1,96 @@
+<Page x:Class="Debeon.Views.ControlsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#252526">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="40">
+        <StackPanel>
+            <TextBlock Text="Controls Settings" Style="{StaticResource SectionHeaderStyle}" FontSize="32" Margin="0,0,0,24"/>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Mouse &amp; Camera" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Mouse Sensitivity" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="MouseSensitivityValue" Text="0.50" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="MouseSensitivitySlider" Minimum="0.1" Maximum="2.0" Value="0.5" Style="{StaticResource CustomSliderStyle}"
+                                TickFrequency="0.1" ValueChanged="MouseSensitivitySlider_ValueChanged"/>
+                        <TextBlock Text="Adjust mouse sensitivity for camera movement" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+
+                    <CheckBox x:Name="InvertYAxisCheckBox" Content="Invert Y-Axis" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Invert vertical camera controls" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Camera Mode" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,8"/>
+                    <ComboBox x:Name="CameraModeComboBox" Height="32" Margin="0,0,0,8">
+                        <ComboBoxItem Content="Follow Camera" IsSelected="True"/>
+                        <ComboBoxItem Content="Free Camera"/>
+                        <ComboBoxItem Content="Locked Camera"/>
+                    </ComboBox>
+                    <TextBlock Text="Select default camera behavior" Style="{StaticResource SettingDescriptionStyle}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Gamepad Settings" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <CheckBox x:Name="GamepadEnabledCheckBox" Content="Enable Gamepad" Foreground="White" Margin="0,0,0,8"/>
+                    <TextBlock Text="Enable controller support for gameplay" Style="{StaticResource SettingDescriptionStyle}" Margin="0,0,0,20"/>
+
+                    <StackPanel Margin="0,0,0,12">
+                        <DockPanel Margin="0,0,0,8">
+                            <TextBlock Text="Gamepad Sensitivity" Style="{StaticResource SettingLabelStyle}" DockPanel.Dock="Left"/>
+                            <TextBlock x:Name="GamepadSensitivityValue" Text="0.50" Foreground="#0078D4" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <Slider x:Name="GamepadSensitivitySlider" Minimum="0.1" Maximum="2.0" Value="0.5" Style="{StaticResource CustomSliderStyle}"
+                                TickFrequency="0.1" ValueChanged="GamepadSensitivitySlider_ValueChanged"/>
+                        <TextBlock Text="Adjust gamepad stick sensitivity" Style="{StaticResource SettingDescriptionStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Key Bindings" Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Move Forward:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBox x:Name="ForwardKeyBox" Grid.Row="0" Grid.Column="1" Text="W" Height="32" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Move Backward:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBox x:Name="BackwardKeyBox" Grid.Row="1" Grid.Column="1" Text="S" Height="32" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Move Left:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBox x:Name="LeftKeyBox" Grid.Row="2" Grid.Column="1" Text="A" Height="32" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Move Right:" Style="{StaticResource SettingLabelStyle}" Margin="0,0,0,12"/>
+                        <TextBox x:Name="RightKeyBox" Grid.Row="3" Grid.Column="1" Text="D" Height="32" Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Jump:" Style="{StaticResource SettingLabelStyle}"/>
+                        <TextBox x:Name="JumpKeyBox" Grid.Row="4" Grid.Column="1" Text="Space" Height="32"/>
+                    </Grid>
+
+                    <Button Style="{StaticResource AccentButtonStyle}" Margin="0,20,0,0" Width="200" Click="ResetKeybindings">
+                        <TextBlock Text="Reset to Default"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

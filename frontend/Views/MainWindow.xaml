@@ -1,0 +1,103 @@
+<Window x:Class="Debeon.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        Title="Debeon - Roblox Bootstrapper"
+        Height="720"
+        Width="1280"
+        MinHeight="600"
+        MinWidth="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#252526">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#1E1E1E" BorderBrush="#2D2D30" BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="20">
+                    <TextBlock Text="DEBEON" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0,0,0,4"/>
+                    <TextBlock Text="Roblox Bootstrapper" FontSize="12" Foreground="#888888"/>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Button x:Name="DashboardButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToDashboard">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🏠" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Dashboard" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="GraphicsButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToGraphics">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🎨" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Graphics" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="AudioButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToAudio">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🔊" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Audio" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="ControlsButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToControls">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🎮" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Controls" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="PerformanceButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToPerformance">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="⚡" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Performance" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="FastFlagsButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToFastFlags">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🚩" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Fast Flags" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="ProfilesButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToProfiles">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="👤" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Profiles" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="AssetsButton" Style="{StaticResource NavigationButtonStyle}" Click="NavigateToAssets">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📦" FontSize="18" Margin="0,0,12,0"/>
+                                <TextBlock Text="Assets" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="2" Margin="20,20,20,24">
+                    <Button Style="{StaticResource AccentButtonStyle}" Click="ApplyConfiguration" Width="210" Height="40">
+                        <TextBlock Text="Apply Configuration" FontSize="14"/>
+                    </Button>
+                    <TextBlock x:Name="StatusText" Text="Ready" FontSize="11" Foreground="#888888" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Frame x:Name="ContentFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Background="#252526"/>
+    </Grid>
+</Window>
