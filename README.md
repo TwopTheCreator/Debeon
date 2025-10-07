@@ -1,4 +1,5 @@
 # Debeon - Roblox Bootstrapper
+![debeon logo](misc/debeon.png)
 
 Debeon is a powerful Roblox bootstrapper that provides advanced configuration and customization options for the Roblox client. Built with a modern C# WPF frontend and a high-performance Rust backend, Debeon gives you complete control over your Roblox experience.
 
